@@ -1,0 +1,75 @@
+doctype html
+head
+  title Grabook.com
+  link(rel='icon' href='favicon.png')
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display+SC&family=Chakra+Petch' rel='stylesheet')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous')
+  link(rel='stylesheet' href='/static/css/book_upload.css')
+  link(rel='stylesheet' href='/static/css/menu-bar.css')
+.menu-bar
+  a.logo(href='/') 
+    img(src='/static/images/logo.png')
+  span.menu
+    span.home-title
+      a(href='/')
+        .text Home
+    span.buy-title
+      a(href='/grab_book')
+        .text Grab A Book
+    span.buy-title
+      a(href='/book_upload')
+        .text Sell 
+  .login
+    if user
+      .dropdown
+        button.dropbtn
+          i.fa.fa-user-circle(style='font-size: 30px;')
+          i.fa.fa-caret-down(style='padding-left:20px; margin: 0; bottom: 10px;')
+        .dropdown-content
+          a(href='/profile') Profile
+          a(href='/books_in_ad') Books Posted
+          a(href='/books_sold') Books Sold
+          a(href='/books_bought') Books Bought
+          a(href='/wishlist') Wishlist
+          a(href='/logout') Logout 
+    else     
+      .login-button
+        a(href='/signin') 
+          .text Get Started 
+.testbox
+  form(action='/book_upload',method='post' enctype="multipart/form-data")
+    .banner
+      h1 Put Your Book On Sale
+    .item
+      p Title Of Book
+      .name-item
+        input(type='text' name='title')
+    .item
+      p Author Name
+      input(type='text' name='author')
+    .item
+      p ISBN Number
+      input(type='text' name='ISBN')
+    .item
+      p Genre
+      input(type='text' name='genre')
+    .item
+      p Year of Publication
+      input(type='number' name='year_of_publication')
+    .item
+      p Age of Book
+      input(type='number' name='age')
+    .item
+      p Price
+      input(type='number' name='price')
+    .item
+      p Description of book
+      input(type='textbox' name='description')
+    .item
+      input.image-box(type='file' name='myimage1')
+      input.image-box(type='file' name='myimage2')
+      input.image-box(type='file' name='myimage3')
+      input.image-box(type='file' name='myimage4')
+      input.image-box(type='submit' name='submit-image',value="Upload")
+    

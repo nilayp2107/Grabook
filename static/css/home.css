@@ -1,0 +1,203 @@
+body{
+    margin: 0px;
+    background-color: rgb(182 176 174);
+}
+.mid-image{
+    width: 100%;
+    height: 690px;
+    margin-top: -60px;
+}
+.menu-bar{
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(182 176 174);
+    position: fixed;
+    z-index: 20;
+}
+.logo{
+    width: 20%;
+    height:100%;
+    float: left;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.menu{
+    width: 50%;
+    height: 100%;
+    float: left;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+}
+.login{
+    width: 20%;
+    height: 100%;
+    float: right;
+    font-size: 18px;
+    text-align: center;
+    align-content: center;
+}
+.login-button{
+    width: 70%;
+    background-color: rgb(0 163 232);
+    height: 60px;
+    border-radius: 10px;
+    transition: 0.5s ease;
+}
+/* .login-button:hover{
+    box-shadow: 0 0 20px 10px rgba(63, 62, 62, 0.899);
+} */
+.home-title{
+    height: 100%;
+    width: 20%;
+    float: left;
+    transition: 0.5s ease;
+}
+/* .home-title:hover, .buy-title:hover, .sell-title:hover{
+    box-shadow: 0px 0px 10px 5px rgba(66, 64, 64, 0.899);
+} */
+.buy-title{
+    height: 100%;
+    width: 20%;
+    float: left;
+    transition: 0.5s ease;
+}
+.sell-title{
+    height: 100%;
+    float: left;
+    width: 20%;
+    transition: 0.5s ease;
+}
+.text{
+    height: auto;
+    padding: 20px 0px 20px 0px;
+    color: black;
+}
+.quote {
+    color: white;
+    margin: 0px;
+    position: absolute;
+    width: 40%;
+    text-align: center;
+    left: 10%;
+    bottom: 370px;
+    font-family: 'Bebas Neue', serif;
+    font-size: 30px;
+}
+.postcard {
+    background-color: rgba(33, 33, 36, 0.76);
+    margin: 0px;
+    position: absolute;
+    width: 30%;
+    height: 300px;
+    bottom: 280px;
+    text-align: center;
+    left: 58%;
+    color: white;
+    border-radius: 10px;
+}
+.button{
+    width: 90%;
+    margin-left: 5%;
+    background-color: rgb(0 163 232);
+    height: 50px;
+    border-radius: 10px;
+    transition: 0.5s ease;
+}
+.button:hover{
+    box-shadow: 0 0 20px 10px rgba(63, 62, 62, 0.899);
+}
+.button-text{
+    color: black;
+    font-family: 'Bebas Neue';
+    font-size: 30px;
+    padding-top: 8px;
+}
+.postcard h1{
+    font-family: 'Bebas Neue', serif;
+    font-size: 30px;
+}
+.postcard p{
+    margin: 55px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+.bottom-section{
+    font-family: sans-serif;
+    font-size: small;
+    width: 100%;
+    margin-top: 0px;
+    color: rgb(80, 79, 79);
+}
+.left-footer{
+    width:33%; 
+    float:left;
+    margin: 30px 20px 0 10px;
+}
+.right-footer{
+    width:23%; 
+    float:right;
+    margin: 12px 20px 0 10px;
+}
+a{
+    text-decoration: none;
+}
+
+.dropdown .dropbtn {
+    height: 60px;
+        width: 100%;
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: rgb(182 176 174);
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(182 176 174);
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: 1s ease;
+  }
+  .drop-down{
+      transition: 1s ease;
+  }
+  .dropdown:hover{
+    box-shadow: 0px 0px 10px 5px rgba(66, 64, 64, 0.899);
+  }
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: 1s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .navbar{
+    font-family: 'Chakra Petch', sans-serif;
+    height: 60px;
+    background-color: rgb(182 176 174);
+    padding: 0px;
+    
+}
+
+.navbar a{
+    font-size: 16px;
+}

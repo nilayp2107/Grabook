@@ -1,0 +1,220 @@
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins',sans-serif;
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 45px;
+    font-weight: 550;
+    line-height: 45px;
+    margin-left: 30px;
+}
+.navbar {
+    background-color: rgb(41, 188, 207);
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+i{
+    margin-left: 12px;
+    margin-right: 12px;
+    
+}
+.grab_book{
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 0px;
+}
+.heading2{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.grab_book_1{
+    margin-left: 90px;
+}
+.grab_book_2{
+    margin-left: 90px;
+}
+.grab_book_3{
+    margin-left: 50px;
+}
+.input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-radius: 3px;
+    outline: none;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(93, 91, 104, 0.6);
+}
+.genre{
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-radius: 3px;
+    outline: none;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(93, 91, 104, 0.6);
+    cursor: pointer;
+}
+.genre option{
+    cursor: pointer;
+    height: 40px;
+}
+h3{
+    text-align: center;
+    color: rgb(41, 188, 207);
+    margin-top: 30px;
+}
+
+.btn2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 250px;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 550;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 520px;
+}
+
+
+.navbar ul li {
+    display: inline;
+    list-style: none;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: 400;
+    margin-right: 35px;
+}
+.details{
+    color: black;
+    margin-left: 20px;
+}
+.card{
+    text-decoration: none;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgba(76, 76, 80, 0.6);
+    height: 600px;
+    width: 370px;
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+.card1{
+    text-decoration: none;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgba(76, 76, 80, 0.6);
+    height: 500px;
+    width: 370px;
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+.card2{
+    text-decoration: none;
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgba(76, 76, 80, 0.6);
+    height: 500px;
+    width: 950px;
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 170px;
+}
+.book_img{
+    margin-left: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.details_price{
+    color: black;
+    margin-left: 20px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.details_price1{
+    color: black;
+    margin-left: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+h6{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(41, 188, 207);
+}
+.btn{
+    margin-left: 20px;
+    margin-top: 40px;
+    width: 80%;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn3{
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 80%;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.offer_details{
+    margin-top: 20px;
+}

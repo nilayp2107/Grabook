@@ -1,0 +1,44 @@
+doctype html
+head
+  title Grabook.com
+  link(href='/static/images/favicon.png' rel='icon')
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display+SC&family=Chakra+Petch' rel='stylesheet')
+  link(rel='stylesheet' href='/static/css/signin.css')
+.menu-bar
+  a.logo(href='/') 
+    img(src='/static/images/logo.png')
+  span.menu 
+    span.home-title 
+      a(href='/')
+        .text Back
+.testbox
+  p.msg1 #{msg}
+  form(action='/signin' method='post')
+    .banner
+      h1 Sign In
+    .item
+      p E-mail Address
+      .name-item
+        input(type='text' name='email_id' required)
+    .item
+      p Password
+      input(type='password' name='password' required)
+    .btn-block
+      button(type='submit' href='/') Sign In
+    a(href='/signup') Not Registered?
+    
+      
+      //- form.form1(action='/signin' method='post')
+      //-   h3.heading1 Sign In
+      //-   p.heading2
+      //-     i.fa.fa-envelope
+      //-     | Email Address
+      //-   .box
+      //-     input#email_id.input(type='text' name='email_id' placeholder='Enter your Email ID')
+      //-   p.heading2
+      //-     i.fa.fa-lock
+      //-     | Password
+      //-   .box
+      //-     input#password.input(type='text' name='password' placeholder='Enter your Password')
+      //-   input.btn(type='submit' value='Sign In')
+      //-   a.ques(href='/signup') Not Registered?

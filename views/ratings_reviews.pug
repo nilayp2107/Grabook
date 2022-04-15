@@ -1,0 +1,109 @@
+doctype html
+head
+  title GrabBook- Ratings and Reviews
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/static/css/ratings_reviews.css')
+  link(rel='stylesheet' href='/static/css/home.css')
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display+SC&family=Chakra+Petch' rel='stylesheet')
+.navbar
+  a.logo(href='') 
+    img(src='/static/images/logo.png')
+  span.menu
+    span.home-title
+      a(href='/') Home
+    span.buy-title
+      a(href='/grab_book') Grab A Book
+    span.sell-title
+      a(href='/book_upload') Sell
+  .login
+    if user
+      .dropdown
+        button.dropbtn
+          img.rounded-circle(src=user.profile_pic alt="Couldn't load" width='30px' height='30px')
+          i.fa.fa-caret-down(style='padding-left:20px; margin: 0; bottom: 10px;')
+        .dropdown-content
+          a(href='/profile') Profile
+          a(href='/books_in_ad') Books Posted
+          a(href='/books_sold') Books Sold
+          a(href='/books_bought') Books Bought
+          a(href='/wishlist') Wishlist
+          a(href='/logout') Logout 
+    else     
+      .login-button
+        a(href='/signin') 
+          .text Get Started
+.container
+  .row
+    .col-4
+      img.rounded-circle.large(src="/static/css/profile_pic.png" alt="Couldn't load" width='200px' height='200px')
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+    .col-6
+      .profile
+        .profile_info
+          p.heading2
+            i.fa.fa-user
+            | Username
+          .box1
+            |#{user.user_name}
+          p.heading2
+            i.fa.fa-envelope
+            | Email Address
+          .box1
+            |#{user.email_id}
+          p.heading2
+            i.fa.fa-user
+            | Occupation
+          .box1
+            |#{user.occupation}
+          p.heading2
+            i.fa.fa-university
+            | University Name
+          .box1
+            |#{user.university_name}
+          p.heading2
+            i.fa.fa-user
+            | Bio
+          .box1
+            |#{user.bio}
+  br
+  br
+form.ratings_reviews_form(method='post' action='#')
+  p.heading2
+    i.fa.fa-star
+    | Ratings for Seller out of 5
+  .box
+    input#ratings.input(type='text' name='ratings' placeholder='Give your Ratings')
+  p.heading2
+    i.fa.fa-sticky-note
+    | Review
+  .box
+    input#review.input(type='text' name='review' placeholder='Write your Review')
+  input.btn.btn2(type='submit' value='Submit Review')
+h2.heading(style="color:black") Reviews
+each rev in reviews
+  .ratings_reviews
+    .row
+      .col-1
+        img.rounded-circle.small(src=user.profile_pic alt="Couldn't load" width='40px' height='40px')
+      .col-2.seller_name
+        p #{user.user_name}
+    .ratings_reviews_seller
+      p Ratings :   #{rev.ratings} / 5
+      p #{rev.reviews}

@@ -1,0 +1,220 @@
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins',sans-serif;
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 45px;
+    font-weight: 550;
+    line-height: 45px;
+    margin-left: 30px;
+}
+.navbar {
+    background-color: rgb(41, 188, 207);
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+i{
+    margin-left: 12px;
+    margin-right: 12px;
+    
+}
+.profile{
+    margin-left: 50px;
+    margin-right: 200px;
+    position: absolute;
+    width: 750px;
+    margin-top: 80px;
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 0 50px;
+}
+.profile1{
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 0px;
+}
+.input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-radius: 3px;
+    outline: none;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(93, 91, 104, 0.6);
+}
+
+.btn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.profile_pic_form{
+    margin-top: 20%;
+    margin-left: 10%;
+}
+.img{
+    margin-left: 50px;
+}
+.btn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 250px;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 550;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 250px;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 550;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 170px;
+}
+.btn2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 250px;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 550;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 520px;
+}
+table{
+    margin-top: 20%;
+    font-size: 18px;
+}
+table tbody tr td{
+    margin-left: 10px;
+}
+.box1{
+    display: block;
+    height: auto;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px 10px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(93, 91, 104, 0.6);
+    color: rgb(124, 121, 121);
+}
+.heading2{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.edit_profile_col1{
+    margin-left: 60px;
+}
+.edit_profile_col2{
+    margin-left: 90px;
+}
+.edit_profile_col3{
+    margin-left: 60px;
+}
+h6{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    color: rgb(41, 188, 207);
+}
+/* edit profile page */
+.profile1{
+    background-color: rgba(255, 255, 255, 0.745);
+}
+.container{
+    font-family: 'Times New Roman', Times, serif;
+    /* background-color: rgba(255, 255, 255, 0.745); */
+}
+.btn.btn2{
+    background-color: rgb(182 176 174);
+    transition: 0.5s ease;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn.btn2:hover{
+    box-shadow: 0 0 10px 5px rgba(63, 62, 62, 0.899);
+}
+
+.heading2{
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: gray;
+}
+
+.input{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.navbar{
+    font-family: 'Chakra Petch', sans-serif;
+    height: 60px;
+    background-color: rgb(182 176 174);
+    padding: 0px;
+    
+}
+
+.navbar a{
+    font-size: 16px;
+}
+
+/*profile button*/
+#myfile{
+    border: none;
+}
+
+input[type="file" i]{
+    border: none;
+}

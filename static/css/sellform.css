@@ -1,0 +1,141 @@
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins',sans-serif;
+}
+img{
+    margin-top: 50px;
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 45px;
+    font-weight: 550;
+    line-height: 45px;
+    margin-left: 30px;
+}
+.navbar {
+    background-color: rgb(41, 188, 207);
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.navbar li{
+    display: inline;
+    text-align: right;
+    list-style: none;
+}
+.navbar li a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: 400;
+    margin-right: 35px;
+}
+.form1{
+    margin-left: 90px;
+    width: 500px;
+    position: absolute;
+    margin-top: 50px;
+    background-color: white;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+.form2{
+    margin-top: 50px;
+    margin-left: 90px;
+    width: 500px;
+    position: absolute;
+    background-color: white;
+    left: 50%;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form a{
+    font-size: 20px;
+}
+form h3{
+    
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.heading2{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(93, 91, 104, 0.6);
+}
+.msg1{
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-left: 150px;
+    color: rgb(41, 188, 207);
+}
+.msg2{
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-left: 150px;
+    color: rgb(41, 188, 207);
+}
+.btn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    background-color: rgb(41, 188, 207);
+    color: #060413;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+i{
+    margin-right: 12px;
+}
+.form1 a{
+    color: rgb(41, 188, 207);
+    text-decoration: none;
+    margin-left: 110px;
+}
+.form2 a{
+    color: rgb(41, 188, 207);
+    text-decoration: none;
+    margin-left: 90px;
+}
+

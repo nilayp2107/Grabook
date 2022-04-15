@@ -1,0 +1,54 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display+SC&family=Chakra+Petch' rel='stylesheet')
+  title GrabBook- Request Offer
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/static/css/request_offer.css')
+  link(rel='stylesheet' href='/static/css/home.css')
+.navbar
+  a.logo(href='') 
+    img(src='/static/images/logo.png')
+  span.menu
+    span.home-title
+      a(href='/') Home
+    span.buy-title
+      a(href='/grab_book') Grab A Book
+    span.sell-title
+      a(href='/book_upload') Sell
+  .login
+    if user
+      .dropdown
+        button.dropbtn
+          img.rounded-circle(src=user.profile_pic alt="Couldn't load" width='30px' height='30px')
+          i.fa.fa-caret-down(style='padding-left:20px; margin: 0; bottom: 10px;')
+        .dropdown-content
+          a(href='/profile') Profile
+          a(href='/books_in_ad') Books Posted
+          a(href='/books_sold') Books Sold
+          a(href='/books_bought') Books Bought
+          a(href='/wishlist') Wishlist
+          a(href='/logout') Logout 
+    else     
+      .login-button
+        a(href='/signin') 
+          .text Get Started
+.container
+  .offer
+    form.offer_form(action='/request_offer/'+book_id method='post')
+      p.heading2
+        i.fa.fa-inr
+        | Offer Price
+      .box
+        input#offer_price.input(type='text' name='offer_price' placeholder='Enter the Offer Price')
+      p.heading2
+        i.fa.fa-sticky-note
+        | Offer Decription
+      .box
+        input#offer_description.input(type='text' name='offer_description' placeholder='Enter Offer Description')
+      input.btn.btn2(type='submit' value='Send Offer')

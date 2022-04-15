@@ -1,0 +1,81 @@
+doctype html
+head
+  title Grabook.com
+  link(href='/static/images/favicon.png' rel='icon')
+  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display+SC&family=Chakra+Petch' rel='stylesheet')
+  link(rel='stylesheet' href='/static/css/signup.css')
+.menu-bar
+  span.logo
+    img(src='/static/images/logo.png')
+  span.menu
+    span.home-title
+      a(href='/')
+        .text Back
+.testbox
+  p.msg2 #{msg}
+  form(action='/signup' method='post')
+    .banner
+      h1 Sign Up
+    .item
+      p First Name
+      .name-item
+        input#first_name.input(type='text' name='first_name' required)
+    .item
+      p Last Name
+      .name-item
+        input#last_name.input(type='text' name='last_name' required)
+    .item
+      p Contact Number
+      .name-item
+        input#phone_number.input(type='text' name='phone_number' required)
+    .item
+      p Email Address 
+      .name-item
+        input#email_id.input(type='text' name='email_id' required)
+    .item
+      p Username
+      .name-item
+        input#user_name.input(type='text' name='user_name' required)
+    .item
+      p Password
+      .name-item
+        input#password.input(type='password' name='password' required)
+    .item
+      p Confirm Password
+      .name-item
+        input#cpassword.input(type='password' name='cpassword' required)
+    input.btn(type='submit' value='Sign Up')
+    a.ques(href='/signin') Already Registered?
+        //-   input#first_name.input(type='text' name='first_name' placeholder='Enter your First Name')
+        //- p.heading2
+        //-   i.fa.fa-user
+        //-   | Last Name
+        //- .box
+        //-   input#last_name.input(type='text' name='last_name' placeholder='Enter your Last Name')
+        //- p.heading2
+        //-   i.fa.fa-phone
+        //-   | Contact Number
+        //- .box
+        //-   input#phone_number.input(type='text' name='phone_number' placeholder='Enter your Contact Number')
+        //- p.heading2
+        //-   i.fa.fa-envelope
+        //-   | Email Address
+        //- .box
+        //-   input#email_id.input(type='text' name='email_id' placeholder='Enter your Email ID')
+        //- p.heading2
+        //-   i.fa.fa-user
+        //-   | User Name
+        //- .box
+        //-   input#user_name.input(type='text' name='user_name' placeholder='Create your User Name')
+        //- p.heading2
+        //-   i.fa.fa-lock
+        //-   | Password
+        //- .box
+        //-   input#password.input(type='text' name='password' placeholder='Create your Password')
+        //- p.heading2
+        //-   i.fa.fa-lock
+        //-   | Confirm Password
+        //- .box
+        //-   input#cpassword.input(type='text' name='cpassword' placeholder='Confirm your Password')
+        //- input.btn(type='submit' value='Sign Up')
+        //- a.ques(href='/signin') Already Registered?
