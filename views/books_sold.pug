@@ -45,7 +45,7 @@ head
       .col-4
         a.card(href=href='/book?id='+book.book_id)
           div
-            img.book_img(src='/static/css/signin_signup.png' height='350px' width='350px')
+            img.book_img(src=book.image_1 height='350px' width='350px')
             .details
               p.details_price(name='price') #{book.price}
               p.details(name='title') #{book.title}

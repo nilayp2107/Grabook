@@ -93,7 +93,7 @@ head
           p.details
             | Description : #{book.description}
           p.seller_heading Seller : 
-          a.seller_link(href='/ratings_reviews')
+          a.seller_link(href='/ratings_reviews?id='+book.seller_user_name)
             .row
               .col-2
                 img.rounded-circle(src='/static/css/profile_pic.png' alt="Couldn't load" width='40px' height='40px')

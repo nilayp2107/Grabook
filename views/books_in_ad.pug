@@ -42,7 +42,7 @@ h6(style="color: black") Books you are currently Advertising !
 .container
   each book in books
     a.card(href='/requests?id='+book.book_id)
-      img.book_img(src='/static/css/home.jpg' height='250px' width='300px')
+      img.book_img(src=book.image_1 height='250px' width='300px')
       .details
         p.details_price(name='price') #{book.price} Rs.
         p.details_title(name='title') #{book.title}

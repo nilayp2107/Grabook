@@ -61,30 +61,30 @@ head
             i.fa.fa-user
             | Username
           .box1
-            |#{user.user_name}
+            |#{seller.user_name}
           p.heading2
             i.fa.fa-envelope
             | Email Address
           .box1
-            |#{user.email_id}
+            |#{seller.email_id}
           p.heading2
             i.fa.fa-user
             | Occupation
           .box1
-            |#{user.occupation}
+            |#{seller.occupation}
           p.heading2
             i.fa.fa-university
             | University Name
           .box1
-            |#{user.university_name}
+            |#{seller.university_name}
           p.heading2
             i.fa.fa-user
             | Bio
           .box1
-            |#{user.bio}
+            |#{seller.bio}
   br
   br
-form.ratings_reviews_form(method='post' action='#')
+form.ratings_reviews_form(method='post' action='/ratings_reviews/'+seller.user_name)
   p.heading2
     i.fa.fa-star
     | Ratings for Seller out of 5

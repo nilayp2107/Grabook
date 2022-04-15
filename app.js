@@ -186,7 +186,7 @@ app.get('/books_sold',isAuth,function(req,res){
   connection.query("SELECT * from book WHERE seller_user_name='"+user.user_name+"' and book_status='sold';", (err, results, rows) => {
     if(err) throw err;
     let books=results;
-    res.render('books_bought.pug',{user,books});
+    res.render('books_sold.pug',{user,books});
 });
 })
 app.get('/books_in_ad',isAuth,function(req,res){
@@ -194,6 +194,7 @@ app.get('/books_in_ad',isAuth,function(req,res){
   connection.query("SELECT * from book WHERE seller_user_name='"+user.user_name+"' and book_status='sale';", (err, results, rows) => {
     if(err) throw err;
     let books=results;
+    console.log(books);
     res.render('books_in_ad.pug',{user,books});
 });
 })
@@ -387,13 +388,18 @@ app.get('/remove_from_ad' ,isAuth,function(req,res){
 
 app.get('/ratings_reviews',function(req,res){
   let user=req.session.user_info;
-  let seller=req.query.id;
-  connection.query("select* from reviews where seller_user_name=?",[seller],(err,results,rows)=>{
+  let seller_id=req.query.id;
+
+  connection.query("select* from reviews where seller_user_name=?",[seller_id],(err,results,rows)=>{
     if(err){
       throw err;
     }
     let reviews=results;
-    res.render("ratings_reviews",{user,reviews});
+    connection.query("select* from user where user_name=?;",[seller_id],(err,result,rows)=>{
+      if(err)throw err;
+      let seller=result[0];
+      res.render("ratings_reviews",{reviews,user,seller});
+    })
   })
   
 });
@@ -413,7 +419,8 @@ app.post('/request_offer/:id',isAuth,function(req,res){
       throw err;
     }
     else{
-      res.send("success");
+      // let msg="Request sent successfully";
+      res.redirect("/grab_book");
     }
   })
 });
@@ -443,21 +450,29 @@ app.post('/accept_request/:id/:buyer',isAuth,function(req,res){
   });
   connection.query("update buy set acceptance_status='accepted'  where book_id=? and buyer_user_name=?",[book_id,buyer],(err,results,rows)=>{
     if(err)throw err;
-    res.redirect("/requests");
+    console.log(book_id);
+    res.redirect("/requests?id="+book_id);
   })
 })
 app.post('/reject_request/:id/:buyer',isAuth,function(req,res){
   let user=req.session.user_info;
   let book_id=req.params.id;
   let buyer=req.params.buyer;
-  connection.query("update buy set acceptance_status='rejected'  where book_id=? and buyer_user_name=?",[book_id,buyer],(err,results,rows)=>{
+  connection.query("delete from buy where book_id=? and buyer_user_name=?;",[book_id,buyer],(err,results,rows)=>{
     if(err)throw err;
     let requests=results;
-    res.redirect("/requests");
+    res.redirect("/requests?id="+book_id);
   })
 })
 
-
+app.post('/ratings_reviews/:id',isAuth,function(req,res){
+  let user=req.session.user_info;
+  let seller_id=req.params.id;
+  connection.query("insert into reviews (review,ratings,seller_user_name,buyer_user_name) values (?,?,?,?);",[req.body.review,req.body.ratings,seller_id,user.user_name],(err,results,rows)=>{
+    if(err)throw err;
+    res.redirect("/ratings_reviews?id="+seller_id);
+  })  
+});
 
 
 
