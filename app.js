@@ -2,13 +2,12 @@ const express = require('express');
 const path = require('path');
 const connection = require('./server');
 const fileUpload = require("express-fileupload");
-
 const session = require('express-session');
 const res = require('express/lib/response');
 const MySQLStore = require('express-mysql-session')(session);
 const sessionStore = new MySQLStore({}, connection);
-
 const app = express();
+
 app.use('/static',express.static('static'));
 
 app.use(
@@ -19,17 +18,19 @@ app.use(
       store: sessionStore,
   })
 );
+
 app.use(
   fileUpload()
 );
+
 app.use(express.urlencoded({
   extended: true
 }))
+
 const hostname = '127.0.0.1';
 const port = 3000;
 app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'));
-
 
 const isAuth=(req,res,next)=>{
   if(req.session.isAuth){
@@ -41,17 +42,22 @@ const isAuth=(req,res,next)=>{
 
 }
 
+app.listen(port,()=>{
+  console.log("Listening on port 3000");
+});
+
 app.get('/', function (req, res) {
     let user=req.session.user_info;
     res.status(200).render('home.pug',{user});
   });
-app.listen(port,()=>{
-    console.log("Listening on port 3000");
-});
+
+
+  //GET request to server for Signin page
 app.get('/signin', function (req, res) {
-  // res.status(200).render('login');
   res.status(200).render('signin.pug');
 });
+
+// POST request for server for Signin Page
 app.post('/signin',function(req,res){
 
   let user_data=req.body;
@@ -60,17 +66,48 @@ app.post('/signin',function(req,res){
   if(err) throw err;
 
   if(results.length==0){ 
-    console.log("No such records exist");
-          res.status(200).redirect('/');}
-
+    let msg2="Invalid Credentials. Please try again.";
+    res.render('signin.pug',{msg2});
+  }
 else {
     req.session.isAuth = true;
     req.session.user_info=results[0];
-    console.log(req.session.user_info);
     res.status(200).redirect('/');
   }
 });
 });
+
+
+// GET request to render Signup Page
+app.get('/signup', function (req, res) {
+  if(req.session.user_info){
+    res.redirect('/');
+  }
+  else{
+    res.status(200).render('signup.pug');
+  }
+});
+// POST request to render Signup Page
+app.post('/signup',function(req,res){
+  let user_data=req.body;
+  connection.query("select * from user where user_name='"+user_data.user_name+"';",(err,rest,rows)=>{
+    if(rest.length==0){
+      connection.query("INSERT INTO user (user_name,first_name,last_name,email_id,phone_number,password)VALUES(?,?,?,?,?,md5(?))",[user_data.user_name,user_data.first_name,user_data.last_name,user_data.email_id,user_data.phone_number,user_data.password] ,(err, results, rows) => {
+        if(err) throw err;
+        else{ 
+          let msg="Registered Succesfully";
+          res.render('signin.pug',{msg});
+      }
+      });
+    }
+    else{
+      let msg="Please Try a different username";
+      res.render('signup.pug',{msg});
+    }
+
+  })
+});
+
 app.post('/search',function(req,res){
   let key=req.body.keyword;
   console.log(key);
@@ -81,16 +118,16 @@ app.post('/search',function(req,res){
       let books=results;
             res.status(200).render('grab_book.pug',{books});}
   else {
-    // console.log(results);
     let books=results;
     res.status(200).render('grab_book.pug',{books});
   }
 });
 })
+
 app.get('/grab_book',function(req,res){
   let user=req.session.user_info;
   let books;
-  connection.query("select *from book where seller_user_name!=?;",[user.user_name], (err, results, rows) => {
+  connection.query("select *from book where seller_user_name!=? and book_status!='sold';",[user.user_name], (err, results, rows) => {
     if(err) throw err;
     books=results;
     res.render('grab_book.pug',{user,books});
@@ -198,33 +235,7 @@ app.get('/books_in_ad',isAuth,function(req,res){
     res.render('books_in_ad.pug',{user,books});
 });
 })
-app.get('/signup', function (req, res) {
-  if(req.session.user_info){
-    res.redirect('/');
-  }
-  else{
-    res.status(200).render('signup.pug');
-  }
-});
-app.post('/signup',function(req,res){
-  let user_data=req.body;
-  connection.query("select * from user where user_name='"+user_data.user_name+"';",(err,rest,rows)=>{
-    if(rest.length==0){
-      connection.query("INSERT INTO user (user_name,first_name,last_name,email_id,phone_number,password)VALUES(?,?,?,?,?,md5(?))",[user_data.user_name,user_data.first_name,user_data.last_name,user_data.email_id,user_data.phone_number,user_data.password] ,(err, results, rows) => {
-        if(err) throw err;
-        else{ 
-          let msg="Registered Succesfully";
-          res.render('signin.pug',{msg});
-      }
-      });
-    }
-    else{
-      let msg="Please Try a different username";
-      res.render('signup.pug',{msg});
-    }
 
-  })
-});
 app.get('/logout',function(req,res){
   req.session.destroy();
   res.redirect('/');
@@ -259,7 +270,8 @@ app.get('/book' ,isAuth, function(req,res){
 });
 });
 app.get('/book_upload',isAuth,function(req,res){
-  res.render('book_upload.pug');
+  let user=req.session.user_info;
+  res.render('book_upload.pug',{user});
 })
 app.post('/book_upload',isAuth,function(req,res){
   let user=req.session.user_info;
@@ -283,7 +295,7 @@ app.post('/book_upload',isAuth,function(req,res){
       let path2 = "/static/bookpics/" + book_id +"_"+2+".jpeg";
       let path3 = "/static/bookpics/" + book_id +"_"+3+".jpeg";
       let path4 = "/static/bookpics/" + book_id +"_"+4+".jpeg";
-      let data=[req.body.title,req.body.author,req.body.description,req.body.age,req.body.genre,req.body.ISBN,req.body.price,req.body.year_of_publication,path1,path2,path3,path4,user.user_name];
+      let data=[req.body.title,req.body.author,req.body.description,req.body.age_of_book,req.body.genre,req.body.ISBN,req.body.price,req.body.year_of_publication,path1,path2,path3,path4,user.user_name];
       let pos=true;
       image1.mv(__dirname+path1, (err) => {
         if (err) {
@@ -310,7 +322,7 @@ app.post('/book_upload',isAuth,function(req,res){
         }
       });
       if(pos){
-        connection.query("insert into book(title,author,description,age,genre,ISBN,price,year_of_publication,image_1,image_2,image_3,image_4,seller_user_name) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",[book_data.title,book_data.author,book_data.description,book_data.age,book_data.genre,book_data.ISBN,book_data.price,book_data.year_of_publication,path1,path2,path3,path4,user.user_name],(err,results,rows)=>{
+        connection.query("insert into book(title,author,description,age_of_book,genre,ISBN,price,year_of_publication,image_1,image_2,image_3,image_4,seller_user_name) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",[book_data.title,book_data.author,book_data.description,book_data.age_of_book,book_data.genre,book_data.ISBN,book_data.price,book_data.year_of_publication,path1,path2,path3,path4,user.user_name],(err,results,rows)=>{
           if(err){
             res.send(err);
             throw err;
@@ -329,6 +341,7 @@ app.post('/book_upload',isAuth,function(req,res){
   }
   
 })
+
 app.post('/profile_upload',isAuth,function(req,res){
   if(!req.files){
     res.status(200).send("No file is uploaded");
@@ -473,19 +486,3 @@ app.post('/ratings_reviews/:id',isAuth,function(req,res){
     res.redirect("/ratings_reviews?id="+seller_id);
   })  
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
