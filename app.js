@@ -60,13 +60,13 @@ app.post('/signin',function(req,res){
   if(err) throw err;
 
   if(results.length==0){ 
-    console.log("No such records exist");
-          res.status(200).redirect('/');}
-
+    let msg2="Invalid Credentials. Please try again.";
+    res.render('signin.pug',{msg2});
+  }
 else {
     req.session.isAuth = true;
     req.session.user_info=results[0];
-    console.log(req.session.user_info);
+    // console.log(req.session.user_info);
     res.status(200).redirect('/');
   }
 });
@@ -259,7 +259,8 @@ app.get('/book' ,isAuth, function(req,res){
 });
 });
 app.get('/book_upload',isAuth,function(req,res){
-  res.render('book_upload.pug');
+  let user=req.session.user_info;
+  res.render('book_upload.pug',{user});
 })
 app.post('/book_upload',isAuth,function(req,res){
   let user=req.session.user_info;
@@ -283,7 +284,7 @@ app.post('/book_upload',isAuth,function(req,res){
       let path2 = "/static/bookpics/" + book_id +"_"+2+".jpeg";
       let path3 = "/static/bookpics/" + book_id +"_"+3+".jpeg";
       let path4 = "/static/bookpics/" + book_id +"_"+4+".jpeg";
-      let data=[req.body.title,req.body.author,req.body.description,req.body.age,req.body.genre,req.body.ISBN,req.body.price,req.body.year_of_publication,path1,path2,path3,path4,user.user_name];
+      let data=[req.body.title,req.body.author,req.body.description,req.body.age_of_book,req.body.genre,req.body.ISBN,req.body.price,req.body.year_of_publication,path1,path2,path3,path4,user.user_name];
       let pos=true;
       image1.mv(__dirname+path1, (err) => {
         if (err) {
@@ -310,7 +311,7 @@ app.post('/book_upload',isAuth,function(req,res){
         }
       });
       if(pos){
-        connection.query("insert into book(title,author,description,age,genre,ISBN,price,year_of_publication,image_1,image_2,image_3,image_4,seller_user_name) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",[book_data.title,book_data.author,book_data.description,book_data.age,book_data.genre,book_data.ISBN,book_data.price,book_data.year_of_publication,path1,path2,path3,path4,user.user_name],(err,results,rows)=>{
+        connection.query("insert into book(title,author,description,age_of_book,genre,ISBN,price,year_of_publication,image_1,image_2,image_3,image_4,seller_user_name) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",[book_data.title,book_data.author,book_data.description,book_data.age_of_book,book_data.genre,book_data.ISBN,book_data.price,book_data.year_of_publication,path1,path2,path3,path4,user.user_name],(err,results,rows)=>{
           if(err){
             res.send(err);
             throw err;
@@ -329,6 +330,7 @@ app.post('/book_upload',isAuth,function(req,res){
   }
   
 })
+
 app.post('/profile_upload',isAuth,function(req,res){
   if(!req.files){
     res.status(200).send("No file is uploaded");
@@ -473,19 +475,3 @@ app.post('/ratings_reviews/:id',isAuth,function(req,res){
     res.redirect("/ratings_reviews?id="+seller_id);
   })  
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
