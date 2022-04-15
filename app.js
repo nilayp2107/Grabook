@@ -90,7 +90,7 @@ app.post('/search',function(req,res){
 app.get('/grab_book',function(req,res){
   let user=req.session.user_info;
   let books;
-  connection.query("select *from book;", (err, results, rows) => {
+  connection.query("select *from book where seller_user_name!=?;",[user.user_name], (err, results, rows) => {
     if(err) throw err;
     books=results;
     res.render('grab_book.pug',{user,books});
