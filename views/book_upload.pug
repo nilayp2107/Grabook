@@ -1,75 +1,156 @@
-doctype html
-head
-  title Grabook.com
-  link(rel='icon' href='favicon.png')
-  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
-  link(href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display+SC&family=Chakra+Petch' rel='stylesheet')
-  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous')
-  link(rel='stylesheet' href='/static/css/book_upload.css')
-  link(rel='stylesheet' href='/static/css/menu-bar.css')
-.menu-bar
-  a.logo(href='/') 
-    img(src='/static/images/logo.png')
-  span.menu
-    span.home-title
-      a(href='/')
-        .text Home
-    span.buy-title
-      a(href='/grab_book')
-        .text Grab A Book
-    span.buy-title
-      a(href='/book_upload')
-        .text Sell 
-  .login
-    if user
-      .dropdown
-        button.dropbtn
-          i.fa.fa-user-circle(style='font-size: 30px;')
-          i.fa.fa-caret-down(style='padding-left:20px; margin: 0; bottom: 10px;')
-        .dropdown-content
-          a(href='/profile') Profile
-          a(href='/books_in_ad') Books Posted
-          a(href='/books_sold') Books Sold
-          a(href='/books_bought') Books Bought
-          a(href='/wishlist') Wishlist
-          a(href='/logout') Logout 
-    else     
-      .login-button
-        a(href='/signin') 
-          .text Get Started 
-.testbox
-  form(action='/book_upload',method='post' enctype="multipart/form-data")
-    .banner
-      h1 Put Your Book On Sale
-    .item
-      p Title Of Book
-      .name-item
-        input(type='text' name='title')
-    .item
-      p Author Name
-      input(type='text' name='author')
-    .item
-      p ISBN Number
-      input(type='text' name='ISBN')
-    .item
-      p Genre
-      input(type='text' name='genre')
-    .item
-      p Year of Publication
-      input(type='number' name='year_of_publication')
-    .item
-      p Age of Book
-      input(type='number' name='age')
-    .item
-      p Price
-      input(type='number' name='price')
-    .item
-      p Description of book
-      input(type='textbox' name='description')
-    .item
-      input.image-box(type='file' name='myimage1')
-      input.image-box(type='file' name='myimage2')
-      input.image-box(type='file' name='myimage3')
-      input.image-box(type='file' name='myimage4')
-      input.image-box(type='submit' name='submit-image',value="Upload")
-    
+html, body {
+    min-height: 100%;
+}
+
+body, div, form, input{ 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+}
+h1 {
+    position: absolute;
+    margin: 0;
+    font-size: 36px;
+    color: #fff;
+    z-index: 2;
+}
+.testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 20px;
+}
+form {
+    margin-top: 50px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.745);
+    box-shadow: 0 0 20px 0 #333; 
+}
+.banner {
+    position: relative;
+    height: 160px;
+    font-family: 'Bebas Neue';
+    letter-spacing: 8px;
+    background-image: url("home.jpg");    
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.banner::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.4); 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+input {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: calc(100% - 10px);
+    padding: 5px;
+    transition: 0.7s ease;
+}
+input:hover{
+    border: 1px solid transparent;
+    box-shadow: 0 0 6px 0 #333;
+    color: #333;
+}
+.item {
+    position: relative;
+    margin: 10px 0;
+}
+.item-button{
+  display: flex;
+  justify-content: center;
+}
+input[type=submit]{
+  display: flex;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  height: 50px;
+    background-color: rgb(0 163 232);
+    color: black;
+}
+.btn-block {
+    margin-top: 10px;
+    text-align: center;
+}
+button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px; 
+    background: rgb(0 163 232);
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+button:hover {
+    box-shadow: 0 0 20px 10px #a9a9a9;
+}
+body{
+  margin: 0px;
+  background-color: rgb(182 176 174);
+  font-size: 18px;
+}
+.menu-bar{
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 400;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(182 176 174);
+  position: fixed;
+  z-index: 20;
+}
+.logo{
+  width: 20%;
+  height:100%;
+  float: left;
+}
+.logo img{
+  width: 100%;
+  height: 100%;
+}
+.menu{
+  width: 50%;
+  height: 100%;
+  float: left;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+}
+.home-title{
+  height: 100%;
+  width: 20%;
+  float: left;
+  transition: 0.5s ease
+}
+.home-title:hover{
+  box-shadow: 0px 0px 10px 5px rgba(66, 64, 64, 0.899);
+}
+.text{
+  height: auto;
+  padding: 20px 0px 20px 0px;
+  color: black;
+  font-size: 18px;
+  font-family: 'Chakra Petch', sans-serif;
+}
+a{
+    color: rgb(95, 4, 107);
+    text-decoration: none;
+}
