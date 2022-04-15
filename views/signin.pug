@@ -12,10 +12,12 @@ head
       a(href='/')
         .text Back
 .testbox
-  p.msg1 #{msg}
   form(action='/signin' method='post')
     .banner
       h1 Sign In
+    .item-msg
+      p.msg1 #{msg}
+      p.msg1 #{msg2}
     .item
       p E-mail Address
       .name-item
