@@ -13,7 +13,6 @@ body{
     font-size: 45px;
     font-weight: 550;
     line-height: 45px;
-    margin-left: 30px;
 }
 .navbar {
     background-color: rgb(41, 188, 207);
@@ -25,6 +24,7 @@ body{
 i{
     margin-left: 12px;
     margin-right: 12px;
+    color: black;
     
 }
 .profile{
@@ -65,7 +65,7 @@ i{
     box-shadow: 0 0 5px rgba(93, 91, 104, 0.6);
 }
 
-.btn{
+/* .btn{
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
@@ -76,7 +76,7 @@ i{
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 
 .profile_pic_form{
@@ -87,16 +87,22 @@ i{
     margin-left: 50px;
 }
 .btn{
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 50px;
     width: 250px;
     background-color: rgb(41, 188, 207);
     color: #060413;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 550;
-    border-radius: 5px;
+    font-size: 16px;
+    /* font-weight: 550; */
+    border-radius: 10px;
     cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    transition: 0.5s ease;
+    padding: 5px 10px;
+}
+
+.btn:hover{
+    box-shadow: 0 0 10px 5px rgba(63, 62, 62, 0.899);
 }
 .btn1{
     margin-top: 50px;
@@ -106,7 +112,6 @@ i{
     color: #060413;
     padding: 15px 0;
     font-size: 18px;
-    font-weight: 550;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 170px;
@@ -151,6 +156,7 @@ table tbody tr td{
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
+    color: black;
 }
 .edit_profile_col1{
     margin-left: 60px;
@@ -175,6 +181,12 @@ h6{
     font-family: 'Times New Roman', Times, serif;
     /* background-color: rgba(255, 255, 255, 0.745); */
 }
+.profile_pic_form{
+    margin-top: 100px;
+}
+.profile{
+    margin-top: 100px;
+}
 .btn.btn2{
     background-color: rgb(182 176 174);
     transition: 0.5s ease;
@@ -190,7 +202,6 @@ h6{
     margin-top: 30px;
     font-size: 20px;
     font-weight: 500;
-    color: gray;
 }
 
 .input{
@@ -218,3 +229,34 @@ h6{
 input[type="file" i]{
     border: none;
 }
+
+.nice{
+    width: 250px;
+    padding: 5px 10px;
+    background: rgb(41, 188, 207);
+    position: relative;
+    border-radius: 10px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.5s ease;
+  }
+
+  .nice:hover{
+    box-shadow: 0 0 10px 5px rgba(63, 62, 62, 0.899);
+  }
+  .hide_file {
+      position: absolute;
+      z-index: 1000;
+      opacity: 0;
+      cursor: pointer;
+      right: 0;
+      top: 0;
+      height: 100%;
+      font-size: 24px;
+      width: 100%;
+  }
