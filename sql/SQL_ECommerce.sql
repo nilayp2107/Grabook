@@ -18,14 +18,15 @@ book_id int primary key auto_increment,
 title varchar(100) not null,
 ISBN varchar(30),
 author varchar(50),
+description varchar(200),
 genre varchar(30),
 year_of_publication int,
 publication_name varchar(50),
 price int,
-image_1 blob,
-image_2 blob,
-image_3 blob,
-image_4 blob,
+image_1 varchar(100),
+image_2 varchar(100),
+image_3 varchar(100),
+image_4 varchar(100),
 age_of_book int,
 date_of_post date,
 place varchar(50),
@@ -60,8 +61,4 @@ foreign key(buyer_user_name) references user(user_name),
 foreign key(book_id) references book(book_id),
 primary key (buyer_user_name, book_id)
 );
- 
-
-
-
-
+create table books_count(num int primary key auto_increment);

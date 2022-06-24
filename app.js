@@ -26,7 +26,7 @@ app.use(express.urlencoded({
   extended: true
 }))
 const hostname = '127.0.0.1';
-const port = process.env.PORT ||3000;
+const port = 3000 || web.process.env;
 app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'));
 
@@ -87,7 +87,7 @@ app.post('/search',function(req,res){
   }
 });
 })
-app.get('/grab_book',function(req,res){
+app.get('/grab_book',isAuth,function(req,res){
   let user=req.session.user_info;
   let books;
   connection.query("select *from book where seller_user_name!=?;",[user.user_name], (err, results, rows) => {
@@ -265,14 +265,9 @@ app.post('/book_upload',isAuth,function(req,res){
   let user=req.session.user_info;
   let book_data=req.body;
   if(req.files){
-    connection.query("SELECT AUTO_INCREMENT FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'ecommerce' AND   TABLE_NAME   = 'book';", (err, results, rows) => {
+    connection.query("SELECT *FROM books_count", (err, results, rows) => {
       if(err) throw err;
-      if(results.length==0){ 
-        console.log("No such records exist");
-              res.status(200).redirect('/');}
-    
-    else {
-      let book_id=results[0].AUTO_INCREMENT;
+      let book_id=results.length;
       book_id=book_id+1;
       const images=req.files;
       const image1=req.files.myimage1;
@@ -310,7 +305,7 @@ app.post('/book_upload',isAuth,function(req,res){
         }
       });
       if(pos){
-        connection.query("insert into book(title,author,description,age,genre,ISBN,price,year_of_publication,image_1,image_2,image_3,image_4,seller_user_name) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",[book_data.title,book_data.author,book_data.description,book_data.age,book_data.genre,book_data.ISBN,book_data.price,book_data.year_of_publication,path1,path2,path3,path4,user.user_name],(err,results,rows)=>{
+        connection.query("insert into book(title,author,description,age_of_book,genre,ISBN,price,year_of_publication,image_1,image_2,image_3,image_4,seller_user_name) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",[book_data.title,book_data.author,book_data.description,book_data.age,book_data.genre,book_data.ISBN,book_data.price,book_data.year_of_publication,path1,path2,path3,path4,user.user_name],(err,results,rows)=>{
           if(err){
             res.send(err);
             throw err;
@@ -320,8 +315,10 @@ app.post('/book_upload',isAuth,function(req,res){
             res.redirect('/books_in_ad');
           }
         });
+        connection.query("insert into books_count() values()",(err,results,rows)=>{
+          if(err){throw err;}
+        })
       }
-    }
   });
   }
   else{
