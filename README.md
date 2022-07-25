@@ -29,10 +29,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com), MySQL
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/deveshjindal77/Grabook
 
 # Go into the repository
-$ cd electron-markdownify
+$ cd Grabook
 
 # Install dependencies
 $ npm install
@@ -40,7 +40,7 @@ $ npm install
 Copy the SQL Queries in the Workbench and run it
 ```bash
 # Run the app
-$ nodemon app.js
+$ node app.js
 ```
 
 
