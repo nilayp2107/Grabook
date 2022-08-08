@@ -90,9 +90,10 @@ app.post('/search',function(req,res){
 app.get('/grab_book',isAuth,function(req,res){
   let user=req.session.user_info;
   let books;
-  connection.query("select *from book where seller_user_name!=?;",[user.user_name], (err, results, rows) => {
+  connection.query("select *from book where seller_user_name!=? and book_status='sale';",[user.user_name], (err, results, rows) => {
     if(err) throw err;
     books=results;
+    console.log(books);
     res.render('grab_book.pug',{user,books});
 });
 })
@@ -259,7 +260,8 @@ app.get('/book' ,isAuth, function(req,res){
 });
 });
 app.get('/book_upload',isAuth,function(req,res){
-  res.render('book_upload.pug');
+  let user=req.session.user_info;
+  res.render('book_upload.pug',{user});
 })
 app.post('/book_upload',isAuth,function(req,res){
   let user=req.session.user_info;
@@ -362,7 +364,6 @@ app.post('/remove_from_wishlist/:id' ,isAuth,function(req,res){
         console.log("Deletion Successful");
         res.redirect('/book?id='+book_id);
       }
-
     });
 
 });

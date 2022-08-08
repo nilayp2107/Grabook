@@ -48,7 +48,6 @@ head
           .text Get Started 
 h6.head(style="color: black") Books you are currently Advertising !
 .container
-  .row
   each book in books
     a.card(href='/requests?id='+book.book_id)
       img.book_img(src=book.image_1 height='250px' width='300px')

@@ -9,7 +9,7 @@ phone_number bigint not null,
 password varchar(50) not null,
 age int,
 bio varchar(200),
-profile_pic blob,
+profile_pic varchar(200),
 university_name varchar(100),
 occupation varchar(50));
 
