@@ -17,7 +17,11 @@ This Project is Created by 2nd Year CSE students as a project for the Lab subjec
 ![Screenshot (21)](https://user-images.githubusercontent.com/87379004/180821132-cb43b804-f380-415b-b009-cfb103816f37.png)
 ### Book Page with add to wishlist and Make Request Feature
 ![Screenshot (22)](https://user-images.githubusercontent.com/87379004/180821135-bda7a013-ec89-4a6c-8ec0-07fb7eaf1056.png)
-### Can Also see Profile of the Seller
+### Interested Buyer can make the offer  
+![Screenshot (36)](https://user-images.githubusercontent.com/87379004/180826342-3188815b-9723-49a6-b67f-e4f243b2b787.png)
+### Book Page for the Seller , shows all the purchase requests 
+![Screenshot (37)](https://user-images.githubusercontent.com/87379004/180826346-24b45afc-6859-4609-b54c-602d56307bd1.png)
+### Buyer can Also see Profile of the Seller
 ![Screenshot (23)](https://user-images.githubusercontent.com/87379004/180821136-b0dc53c3-bb05-4c16-9f7d-9054be0ea789.png)
 ### Book Page after adding to wishlist
 ![Screenshot (29)](https://user-images.githubusercontent.com/87379004/180821138-507af2d7-7369-4fa8-9532-c592ce819266.png)
