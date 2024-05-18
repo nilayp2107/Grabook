@@ -60,7 +60,7 @@ head
             i.fa.fa-university
             | University Name
           .box
-            input#unversity_name.input(type='text' name='university_name' placeholder='Enter your University Name')
+            input#unversity_name.input(type='text' name='university_name' placeholder='Enter your University Name',value=user.university_name)
         .col-5.edit_profile_col2
           p.heading2
             i.fa.fa-user
@@ -88,5 +88,5 @@ head
             i.fa.fa-user
             | Bio
           .box
-            input#bio.input(type='text' name='bio' placeholder='Enter your Bio')
+            input#bio.input(type='text' name='bio' placeholder='Enter your Bio',value=user.bio)
       input.btn.btn2(type='submit' value='MAKE CHANGES')

@@ -36,6 +36,8 @@ form {
 .banner {
     position: relative;
     height: 160px;
+    font-family: 'Bebas Neue';
+    letter-spacing: 8px;
     background-image: url("home.jpg");    
     background-size: cover;
     display: flex;
@@ -67,8 +69,19 @@ input:hover{
     position: relative;
     margin: 10px 0;
 }
-    
+.item-button{
+  display: flex;
+  justify-content: center;
+}
 input[type=submit]{
+  display: flex;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  height: 50px;
     background-color: rgb(0 163 232);
     color: black;
 }

@@ -44,14 +44,14 @@ head
 .container
   form.grabook(action='/search' method='post')
     .row
-      .select-box
-        select#genre.genre(name='genre')
-          option#default(value='') Choose Genre
-          option.option(value='genre') Computer Science
-          option.option(value='genre') Civil Engeneering
-          option.option(value='genre') Mechanical Engineering
-          option.option(value='genre') Electrical Engineering
-          option.option(value='genre') Metallurgy and Material Science
+      //- .select-box
+      //-   select#genre.genre(name='genre')
+      //-     option#default(value='') Choose Genre
+      //-     option.option(value='genre') Computer Science
+      //-     option.option(value='genre') Civil Engeneering
+      //-     option.option(value='genre') Mechanical Engineering
+      //-     option.option(value='genre') Electrical Engineering
+      //-     option.option(value='genre') Metallurgy and Material Science
       .search-box
         input#title.input(type='text' name='keyword' placeholder='Enter Book Title')
         input.search-btn(type='submit' value='Search Book')

@@ -48,18 +48,18 @@ body{
     border-radius: 10px;
     transition: 0.5s ease;
 }
-/* .login-button:hover{
+.login-button:hover{
     box-shadow: 0 0 20px 10px rgba(63, 62, 62, 0.899);
-} */
+}
 .home-title{
     height: 100%;
     width: 20%;
     float: left;
     transition: 0.5s ease;
 }
-/* .home-title:hover, .buy-title:hover, .sell-title:hover{
+.home-title:hover, .buy-title:hover, .sell-title:hover{
     box-shadow: 0px 0px 10px 5px rgba(66, 64, 64, 0.899);
-} */
+}
 .buy-title{
     height: 100%;
     width: 20%;
@@ -110,6 +110,12 @@ body{
 }
 .button:hover{
     box-shadow: 0 0 20px 10px rgba(63, 62, 62, 0.899);
+}
+.rounded-circle{
+    border-radius: 50%;
+}
+.circle{
+    border-radius: 50%;
 }
 .button-text{
     color: black;
@@ -181,6 +187,8 @@ a{
     display: block;
     text-align: left;
     transition: 1s ease;
+    font-size: 18px;
+    font-family: 'Chakra Petch', sans-serif;
   }
   
   .dropdown-content a:hover {

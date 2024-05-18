@@ -144,7 +144,7 @@ html, body {
     opacity: 0;
     }
     input[type=submit]{
-        background-color: #666;
+        background-color: #00a3e8;
         color: white;
         width: 100%;
     }
@@ -230,9 +230,6 @@ html, body {
   width: 20%;
   float: left;
 }
-.home-title:hover, .buy-title:hover, .sell-title:hover{
-  box-shadow: 0px 0px 10px 5px rgba(66, 64, 64, 0.899);
-}
 .buy-title{
   height: 100%;
   width: 20%;
@@ -254,4 +251,9 @@ html, body {
   height: 30px;
   width: 23%;
   float: left;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
